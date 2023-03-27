@@ -1,0 +1,27 @@
+
+@url= http://localhost:8000/api/v1
+
+POST {{url}}/user/register
+Content-type:application/json
+
+{  
+"fname":"hshs",
+"lname":"hshs",
+"email":"er@gmail.com",
+"phonenumber":"4544",
+"password":"121",
+"repeatpassword":"121",
+
+
+}
+
+
+
+###
+POST {{url}}/user/login
+Content-type:application/json
+
+{
+    "email":"er@gmail.com",
+    "password":"121",
+}
