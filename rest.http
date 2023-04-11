@@ -25,3 +25,6 @@ Content-type:application/json
     "email":"er@gmail.com",
     "password":"121",
 }
+
+###
+GET {{url}}/tredningProducts
