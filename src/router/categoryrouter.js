@@ -5,15 +5,15 @@ const router = express.Router()
 
 let db
 let client
-let products
 
+let category
 
 async function init(){
     if(db) return
     try {
         client = await clientPromise
         db = await client.db()
-        products = await db.collection('proudcts')
+        category = await db.collection('catagorysessions')
         
         db && console.log('Mongo db connected!')
     } catch (error) {
@@ -23,35 +23,22 @@ async function init(){
 
 
 
-router.get('/', async(req,res,next) => {
+router.get('/:slug?', async(req,res,next) => {
    await init()
    try {
-
-    const prods = await products.find({}).toArray()
+    const {slug} = req.params
+console.log(slug)
+    const cats= slug ?  await category.find({slug}).toArray() :  await category.find({}).toArray()
   
     res.json({
         status: "success",
         message: "get all product list ",
-        prods,
+        cats,
       });
     
    } catch (error) {
     next(error)
    }
 })
-
-
-// router.get("/:_id?", async (req, res, nex)=>{
-//     try {
-//         const{_id}= req.params;
-
-//         const prods = await products.find({parentCat: _id}).toArray()
-        
-//         const products = _id? await product.find(f)
-
-//     } catch (error) {
-        
-//     }
-// })
 
 export default router

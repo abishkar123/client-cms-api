@@ -27,4 +27,4 @@ Content-type:application/json
 }
 
 ###
-GET {{url}}/tredningProducts
+GET {{url}}/products
