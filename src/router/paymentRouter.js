@@ -1,18 +1,20 @@
 import express from 'express'
 import clientPromise from '../config/dbConfig.js'
 
+
 const router = express.Router()
 
 let db
 let client
-let category
+let payments
+
 
 async function init(){
     if(db) return
     try {
         client = await clientPromise
         db = await client.db()
-        category = await db.collection('catagorysessions')
+        payments= await db.collection('paymentmethods')
         
         db && console.log('Mongo db connected!')
     } catch (error) {
@@ -22,22 +24,24 @@ async function init(){
 
 
 
-router.get('/:slug?', async(req,res,next) => {
+router.get('/', async(req,res,next) => {
    await init()
    try {
-    const {slug} = req.params
-console.log(slug)
-    const cats= slug ?  await category.find({slug}).toArray() :  await category.find({}).toArray()
+
+    const paymethods = await payments.find({}).toArray()
   
     res.json({
         status: "success",
         message: "get all product list ",
-        cats,
+        paymethods,
       });
     
    } catch (error) {
     next(error)
    }
 })
+
+
+
 
 export default router

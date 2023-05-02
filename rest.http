@@ -1,5 +1,5 @@
 
-@url= http://localhost:8000/api/v1
+@url= http://localhost:8001/api/v1
 
 POST {{url}}/user/register
 Content-type:application/json
@@ -27,4 +27,7 @@ Content-type:application/json
 }
 
 ###
-GET {{url}}/products
+    
+GET {{url}}/payments
+
+
