@@ -8,8 +8,7 @@ const router= express.Router();
 
 router.post("/register", async(req, res, next)=>{
     try {
-req.body.password = hashPassword(req.body.password)
-        
+
 const result = await createNewUser(req.body)
 if(result?._id){
     res.json({

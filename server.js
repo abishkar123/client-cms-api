@@ -22,13 +22,13 @@ app.use(morgan("dev"));
 import UserRouter from './src/router/UserRouter.js';
 import productRouter from './src/router/productRouter.js'
 import categoryRouter from "./src/router/categoryrouter.js"
-import paymentRouter from "./src/router/paymentRouter.js"
+import paymentsRouter from "./src/router/paymentRouter.js"
 
 
 app.use("/api/v1/user", UserRouter)
 app.use('/api/v1/product', productRouter)
 app.use("/api/v1/category", categoryRouter)
-app.use("/api/v1/payments", paymentRouter)
+app.use("/api/v1/payments", paymentsRouter)
 
 //root url request
 app.use("/", (req, res, next) => {

@@ -30,22 +30,6 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-
-    repeatpassword: {
-        type: String,
-        required: true,
-      },
-    
-    isEmailVerified: {
-      type: Boolean,
-      default: false,
-    },
-    emailVerificationCode: {
-      type: String,
-    },
-    refreshJWT: {
-      type: String,
-    },
   },
   {
     timestamps: true,

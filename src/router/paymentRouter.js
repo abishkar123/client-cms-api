@@ -27,15 +27,15 @@ async function init(){
 router.get('/', async(req,res,next) => {
    await init()
    try {
-
-    const paymethods = await payments.find({}).toArray()
+   
+    const paym = await payments.find({}).toArray()
+  
   
     res.json({
         status: "success",
         message: "get all product list ",
-        paymethods,
+        paym,
       });
-    
    } catch (error) {
     next(error)
    }
