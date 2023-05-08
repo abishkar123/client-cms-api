@@ -10,9 +10,6 @@ Content-type:application/json
 "email":"er@gmail.com",
 "phonenumber":"4544",
 "password":"121",
-"repeatpassword":"121",
-
-
 }
 
 

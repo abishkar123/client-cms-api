@@ -23,13 +23,24 @@ const userSchema = new mongoose.Schema(
     },
     phonenumber: {
       type: String,
-      required: true,
+      default: "",
     },
     
     password: {
       type: String,
       required: true,
     },
+    
+    isEmailVerified: {
+      type: Boolean,
+      default: false,
+  },
+  emailVerificationCode: {
+      type: String,
+  },
+  refreshJWT: {
+      type: String,
+  },
   },
   {
     timestamps: true,
