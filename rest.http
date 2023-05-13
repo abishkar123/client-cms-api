@@ -25,6 +25,6 @@ Content-type:application/json
 
 ###
     
-GET {{url}}/payments
+GET {{url}}/order
 
 

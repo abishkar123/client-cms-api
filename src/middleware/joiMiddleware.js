@@ -145,4 +145,27 @@ export const editProductValidation = (req, res, next) => {
   });
 
   joiValidation(schema, req, res, next);
+}
+
+/// order 
+
+
+export const neworderValidation= (req, res, next) => {
+  const schema = Joi.object({
+    addressline: LONGREQUIRED,
+    fname: SHORTREQUIRED,
+    lname: SHORTREQUIRED,
+    email: Joi.string().email({ minDomainSegments: 2 }),
+    phonenumber: Joi.number(),
+    town: SHORTREQUIRED,
+    state: SHORTREQUIRED,
+    posscode: SHORTREQUIRED,
+    userid: SHORTREQUIRED,
+    paymentDetails: LONGREQUIRED,
+    cart: LONGREQUIRED,
+   
+  });
+
+  joiValidation(schema, req, res, next);
 };
+

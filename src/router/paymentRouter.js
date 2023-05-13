@@ -28,9 +28,9 @@ router.get('/', async(req,res,next) => {
    await init()
    try {
    
-    const paym = await payments.find({}).toArray()
+    const paym= await payments.find({}).toArray()
   
-  
+  console.log(paym)
     res.json({
         status: "success",
         message: "get all product list ",
