@@ -27,7 +27,7 @@ export const sendEmail = async (emailBody) => {
 // make email template and data ready
 export const newAccountEmailVerificationEmail = (link, obj) => {
   const emailBody = {
-    from: `"FEMINAL FASHION", <${obj.email}>`,
+    from: `"SnkerCrazy", <${obj.email}>`,
     to: obj.email,
     subject: "Verify your email",
     text: "Plase follow the link to verify your account " + link,

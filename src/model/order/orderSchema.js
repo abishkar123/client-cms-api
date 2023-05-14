@@ -10,7 +10,7 @@ const orderSchema = new mongoose.Schema({
     state: { type: String, required: true },
     posscode: { type: String, required: true },
     userId:{ type: Object, required: true },
-    paymentDetails: {
+    paymentDetails:{
         paymentStatus: { type: String},
         paymentmethods: { type: String, required: true },
         totalAmount:{ type: String},

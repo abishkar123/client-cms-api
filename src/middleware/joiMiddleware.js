@@ -160,9 +160,9 @@ export const neworderValidation= (req, res, next) => {
     town: SHORTREQUIRED,
     state: SHORTREQUIRED,
     posscode: SHORTREQUIRED,
-    userid: SHORTREQUIRED,
-    paymentDetails: LONGREQUIRED,
-    cart: LONGREQUIRED,
+    userId: SHORTREQUIRED,
+    paymentDetails:Joi.object().max(30),
+    cart:Joi.array().max(30),
    
   });
 
