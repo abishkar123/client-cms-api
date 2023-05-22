@@ -31,6 +31,8 @@ app.use("/api/v1/category", categoryRouter)
 app.use("/api/v1/payments", paymentsRouter)
 app.use("/api/v1/order", orderrouter)
 
+
+
 //root url request
 app.use("/", (req, res, next) => {
     const error = {

@@ -41,17 +41,25 @@ router.get('/', async(req,res,next) => {
 })
 
 
-// router.get("/:_id?", async (req, res, nex)=>{
-//     try {
-//         const{_id}= req.params;
+router.get("/:slug?", async (req, res, nex)=>{
+    try {
+        const{slug}= req.params;
+        const prod = await products.findOne({slug})
 
-//         const prods = await products.find({parentCat: _id}).toArray()
+        res.json({
+            status: "success",
+            message: "get single product",
+            prod,
+          });
         
-//         const products = _id? await product.find(f)
 
-//     } catch (error) {
+        // const prods = await products.find({parentCat: _id}).toArray()
         
-//     }
-// })
+        // const products = _id? await product.find(f)
+
+    } catch (error) {
+        next(error)
+    }
+})
 
 export default router
