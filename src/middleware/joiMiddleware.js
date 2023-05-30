@@ -1,12 +1,14 @@
 import Joi from "joi";
 
-const SHORTSTR = Joi.string().max(100);
+const SHORTSTR = Joi.string().max(100).required;
 const LONGSTR = Joi.string().max(500);
 const SHORTREQUIRED = Joi.string().max(100).required();
 const LONGREQUIRED = Joi.string().max(500).required();
 const EMAIL = Joi.string().email({ minDomainSegments: 2 });
 const NUMBER = Joi.number();
 const NUMREQUIRED = Joi.number().required();
+const BOOLREQUIRED = Joi.boolean().required()
+
 
 const joiValidation = (schema, req, res, next) => {
   try {
@@ -150,10 +152,15 @@ export const editProductValidation = (req, res, next) => {
 /// order 
 
 
-export const neworderValidation= (req, res, next) => {
+const paymentDetails = {
+  paymentmethods: SHORTREQUIRED,
+  totalAmount: SHORTREQUIRED,
+}
+
+export const neworderValidation = (req, res, next) => {
   const schema = Joi.object({
     addressline: LONGREQUIRED,
-    fname: SHORTREQUIRED,
+    fname:SHORTREQUIRED,
     lname: SHORTREQUIRED,
     email: Joi.string().email({ minDomainSegments: 2 }),
     phonenumber: Joi.number(),
@@ -161,11 +168,12 @@ export const neworderValidation= (req, res, next) => {
     state: SHORTREQUIRED,
     posscode: SHORTREQUIRED,
     userId: SHORTREQUIRED,
-    paymentDetails:Joi.object().max(30),
-    cart:Joi.array().max(30),
-   
-  });
+    paymentDetails,
+    cartItems: Joi.array().max(30),
+    isPaid: BOOLREQUIRED,
+    padiAt: Joi.date().allow("").allow(null),
+  })
 
-  joiValidation(schema, req, res, next);
-};
+  joiValidation(schema, req, res, next)
+}
 

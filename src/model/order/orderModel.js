@@ -10,3 +10,7 @@ export const readOrder = () => {
 
 }
 
+export const updateOrder = (id, update) => {
+    console.log(id, update)
+    return orderSchema.findByIdAndUpdate(id, update, { new: true })
+  }

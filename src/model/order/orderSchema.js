@@ -5,17 +5,24 @@ const orderSchema = new mongoose.Schema({
     fname: { type: String, required: true },
     lname: { type: String, required: true },
     email: { type: String, required: true },
-    phonenumber: { type: String },
+    phonenumber: { type: Number },
     town: { type: String, required: true },
     state: { type: String, required: true },
     posscode: { type: String, required: true },
     userId:{ type: Object, required: true },
     paymentDetails:{
-        paymentStatus: { type: String},
+       
         paymentmethods: { type: String, required: true },
         totalAmount:{ type: String},
 
     },
+    isPaid: {
+        type: Boolean,
+        default: false,
+      },
+      paidAt: {
+        type: Date,
+      },
    
     cart: [{
         name: { type: String, required: true },
