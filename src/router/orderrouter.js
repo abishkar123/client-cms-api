@@ -90,26 +90,6 @@ router.patch("/status", async (req, res, next) => {
   })
 
 
-router.post("/process-payment",async (req, res, next)=>{
 
-    const { amount,currency} = req.body;
-    console.log( process.env.STRIPE_SECRET_KEY)
-
-    const stripe = new Stripe(process.env.STRIPE_SECRET_KEY)
-    try {
-        const paymentIntent = await  
-        stripe.paymentIntents.create({
-            amount, // amount in cents
-            currency,
-            payment_method_types: ['card'],
-          })
-
-        res.json({clientSecret:paymentIntent.client_secret});
-    } catch (error) {
-        console.log(error);
-        res.status(500).json({error:error.message})
-    }
-
-})
 
 export default router;
