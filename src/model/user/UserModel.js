@@ -23,8 +23,8 @@ export const findUser = (filter)=>{
 export const updateProfile1 = ({ _id, rest }) => {
     return UserSchema.findByIdAndUpdate(_id, rest, { new: true });
 };
-export const getUser = async() =>{
-   const db = await clientPromise.db("admin_users")
+// export const getUser = async() =>{
+//    const db = await clientPromise.db("admin_users")
 
-   return await db.find()
-}
+//    return await db.find()
+// }
